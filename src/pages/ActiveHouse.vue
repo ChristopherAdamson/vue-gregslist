@@ -1,5 +1,15 @@
 <template>
-  <div class="ActiveHouse"></div>
+  <div class="ActiveHouse row justify-content-center">
+    <div class="rol-6 text-center">
+      <h5>${{house.price}}</h5>
+      <img class="img-fluid" :src="house.imgUrl" />
+      <h5>{{house.bedrooms}}</h5>
+      <h5>{{house.bathrooms}}</h5>
+      <h5>{{house.levels}}</h5>
+      <h5>{{house.year}}</h5>
+      <p>{{house.description}}</p>
+    </div>
+  </div>
 </template>
 
 
@@ -10,10 +20,10 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.dispatch("getCar", this.$route.params.id);
+    this.$store.dispatch("getHouse", this.$route.params.id);
   },
   computed: {
-    House() {
+    house() {
       return this.$store.state.activeHouse;
     },
   },

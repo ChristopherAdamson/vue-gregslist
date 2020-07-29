@@ -1,6 +1,6 @@
 <template>
-  <div class="House col-4" @click="goToActiveHouse">
-    <div class>
+  <div class="House col-4">
+    <div @click="goToActiveHouse" class>
       <h5>${{houseData.price}}</h5>
       <img class="img-fluid" :src="houseData.imgUrl" />
     </div>
@@ -18,7 +18,7 @@ export default {
   computed: {},
   methods: {
     goToActiveHouse() {
-      this.$router.push({ name: House, params: { id: this.houseData._id } });
+      this.$router.push({ name: "House", params: { id: this.houseData._id } });
     },
   },
   components: {},

@@ -48,7 +48,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "Cars" */ '../pages/ActiveCar.vue')
+    component: () => import(/* webpackChunkName: "Car" */ '../pages/ActiveCar.vue')
   },
   {
     path: '/house/:id',
@@ -56,7 +56,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "Houses" */ '../pages/ActiveHouse.vue')
+    component: () => import(/* webpackChunkName: "House" */ '../pages/ActiveHouse.vue')
   },
   {
     path: '/*',
