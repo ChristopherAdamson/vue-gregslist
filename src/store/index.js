@@ -13,6 +13,8 @@ export default new Vuex.Store({
   state: {
     cars: [],
     activeCar: {},
+    houses: [],
+    activeHouse: []
   },
   mutations: {
     setCars(state, carsData) {
@@ -21,6 +23,12 @@ export default new Vuex.Store({
     setActiveCar(state, carData) {
       state.activeCar = carData
     },
+    setHouses(state, houseData) {
+      state.houses = houseData
+    },
+    setActiveHouse(state, houseData) {
+      state.activeHouse = houseData
+    }
   },
   actions: {
     async getCars({ commit, dispatch }) {
@@ -34,6 +42,20 @@ export default new Vuex.Store({
         let res = await _api.get("cars/" + carId)
         console.log(res.data);
         commit("setActiveCar", res.data.data)
+      } catch (error) { console.error(error) }
+    },
+    async getHouses({ commit, dispatch }) {
+      try {
+        let res = await _api.get("houses")
+        console.log(res.data);
+        commit("setHouses", res.data.data)
+      } catch (error) { console.error(error) }
+    },
+    async getHouse({ commit, dispatch }, houseId) {
+      try {
+        let res = await _api.get("houses/" + houseId)
+        console.log(res.data);
+        commit("setActiveHouse", res.data.data)
       } catch (error) { console.error(error) }
     }
   },
